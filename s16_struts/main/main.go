@@ -9,9 +9,28 @@ type Person struct {
 
 func main() {
 
-	var tom Person
-	tom.id = 1
-	tom.name = "tom"
+	var p1 Person
+	p1.id = 1
+	p1.name = "p1"
+	fmt.Printf("%v\n", p1)
 
-	fmt.Printf("%v\n", tom)
+	var p2 = Person{
+		id:   2,
+		age:  20,
+		name: "jack",
+	}
+	fmt.Printf("%v\n", p2)
+
+	var p3 = Person{
+		2,
+		21,
+		"mike",
+		"mike@gmail.com",
+	}
+	fmt.Printf("%v\n", p3)
+
+	ap3 := &p3
+	fmt.Printf("%T\n", ap3)
+	(*ap3).id = 3
+	fmt.Printf("%v\n", p3)
 }
