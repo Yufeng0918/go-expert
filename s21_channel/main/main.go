@@ -21,4 +21,17 @@ func main() {
 	go send()
 	value := <-values
 	fmt.Printf("receive %v\n", value)
+
+	c := make(chan int)
+	go func() {
+		for i := 0; i < 10; i++ {
+			c <- i
+		}
+		close(c)
+	}()
+
+	for r := range c {
+		fmt.Printf("read: %v\n", r)
+	}
+	time.Sleep(time.Second * 2)
 }

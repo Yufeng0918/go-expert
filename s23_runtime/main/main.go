@@ -13,6 +13,7 @@ func hello(msg string) {
 
 func main() {
 
+	fmt.Printf("cpu %v\n", runtime.NumCPU())
 	go hello("java")
 
 	for i := 0; i < 3; i++ {
